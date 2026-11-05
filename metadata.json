@@ -1,0 +1,6 @@
+{
+  "name": "EventHub Pakistan — Official Event Tickets & Live Box Office",
+  "description": "Pakistan's premier live event ticketing portal for concerts, PSL cricket fixtures, Sufi Qawwali, literature festivals, and tech summits across Karachi, Lahore, and Islamabad.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
