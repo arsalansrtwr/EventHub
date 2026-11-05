@@ -51,7 +51,7 @@ const INITIAL_EVENTS: Event[] = [
     category_id: 'cat-1',
     title: 'Coke Studio Live 2026: Sufi Rock & Acoustic Fusion',
     description: 'Experience powerhouse live vocal performances, traditional sarangi rhythms, and modular synth fusion featuring Atif Aslam, Ali Sethi, and Shae Gill under the open night sky at Beach View Clifton.',
-    poster: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
+    poster: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=85',
     event_date: '2026-11-20T20:00:00',
     venue: 'Beach View Park, Clifton, Karachi',
     price: 4500, // PKR
@@ -64,7 +64,7 @@ const INITIAL_EVENTS: Event[] = [
     category_id: 'cat-4',
     title: 'PSL 11 Grand Final: Lahore Qalandars vs Karachi Kings',
     description: 'The ultimate high-voltage cricket derby of Pakistan. Witness explosive T20 floodlit cricket, courtside VIP enclosures, electrifying stadium commentary, and the champion trophy presentation.',
-    poster: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80',
+    poster: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=2000&q=85',
     event_date: '2026-11-28T19:30:00',
     venue: 'Gaddafi Stadium, Ferozepur Road, Lahore',
     price: 3500, // PKR
@@ -77,7 +77,7 @@ const INITIAL_EVENTS: Event[] = [
     category_id: 'cat-1',
     title: 'Sufi Qawwali Night: Ustad Rahat Fateh Ali Khan & Fareed Ayaz',
     description: 'A spiritual musical evening honoring Amir Khusro and classical Sufi kalam. Soulful harmonium harmonies, tabla jugalbandi, and timeless melodies in an acoustically tuned auditorium.',
-    poster: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1200&q=80',
+    poster: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=2000&q=85',
     event_date: '2026-12-05T20:30:00',
     venue: 'Alhamra Arts Centre, Hall 1, Mall Road, Lahore',
     price: 5000, // PKR
@@ -90,7 +90,7 @@ const INITIAL_EVENTS: Event[] = [
     category_id: 'cat-2',
     title: 'Pakistan Tech & AI Innovation Summit 2026',
     description: 'Pakistan’s premier software engineering, fintech, and venture capital conference. Three stages covering generative models, autonomous robotics, global diaspora networking, and unicorn pitches.',
-    poster: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
+    poster: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=2000&q=85',
     event_date: '2026-12-12T09:00:00',
     venue: 'Lahore Expo Centre, Trade Centre Commercial Area, Johar Town, Lahore',
     price: 7500, // PKR
@@ -103,7 +103,7 @@ const INITIAL_EVENTS: Event[] = [
     category_id: 'cat-3',
     title: 'Karachi Literature Festival (KLF) 17th Edition',
     description: 'Three days of vibrant literary dialogues, Urdu poetry mushairas, investigative journalism debates, book launches, and book signings with internationally acclaimed South Asian authors.',
-    poster: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
+    poster: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=85',
     event_date: '2026-12-18T10:00:00',
     venue: 'Arts Council of Pakistan, M.R. Kiyani Road, Karachi',
     price: 1500, // PKR
@@ -116,7 +116,7 @@ const INITIAL_EVENTS: Event[] = [
     category_id: 'cat-3',
     title: 'The Legend of Anarkali: Live Urdu Musical Drama',
     description: 'A grand revival of Pakistan’s most celebrated classical love story. Featuring authentic Mughal period costuming, live sitar and sarangi accompaniment, and stellar dramatic performances.',
-    poster: 'https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=1200&q=80',
+    poster: 'https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=2000&q=85',
     event_date: '2026-12-22T19:00:00',
     venue: 'PNCA National Art Gallery Auditorium, Sector F-5/1, Islamabad',
     price: 2800, // PKR
@@ -129,7 +129,7 @@ const INITIAL_EVENTS: Event[] = [
     category_id: 'cat-5',
     title: 'Lahore Food, Music & Heritage Mela 2026',
     description: 'Over 80 curated food stalls serving authentic Old Lahore delicacies, Nihari, Karahi, and traditional street snacks, alongside underground indie acoustic gigs and folk dance troupes.',
-    poster: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80',
+    poster: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=2000&q=85',
     event_date: '2026-12-29T16:00:00',
     venue: 'Royal Palm Golf & Country Club, Canal Bank Road, Lahore',
     price: 1200, // PKR
@@ -142,7 +142,7 @@ const INITIAL_EVENTS: Event[] = [
     category_id: 'cat-6',
     title: 'Karachi Comedy Club: Uncensored Live Stand-Up',
     description: 'An evening of unapologetic observational satire, Pakistani cultural humor, and lightning-fast crowd work featuring four of the country’s top touring stand-up acts.',
-    poster: 'https://images.unsplash.com/photo-1585699324551-f6c309eedeca?auto=format&fit=crop&w=1200&q=80',
+    poster: 'https://images.unsplash.com/photo-1585699324551-f6c309eedeca?auto=format&fit=crop&w=2000&q=85',
     event_date: '2027-01-09T21:00:00',
     venue: 'Arts Council Studio 2, Karachi',
     price: 2000, // PKR
@@ -541,8 +541,10 @@ class DatabaseService {
         attrsObj[attrName] = ea.value;
       });
 
+      const highResPoster = (e.poster || '').replace('w=1200', 'w=2000').replace('q=80', 'q=85');
       return {
         ...e,
+        poster: highResPoster,
         categoryName: categoriesMap.get(e.category_id) || 'General',
         attributes: attrsObj,
       };

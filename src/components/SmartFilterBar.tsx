@@ -27,7 +27,7 @@ export const SmartFilterBar: React.FC<SmartFilterBarProps> = ({
     filters.search !== '';
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    <div className="w-full px-4 sm:px-8 lg:px-12 mt-6">
       {/* Integrated Multi-Parameter Filter Matrix */}
       <div className="w-full bg-white rounded-2xl shadow-xs p-4 sm:p-6 flex flex-col gap-4 border border-slate-200">
         {/* Top 12-Column Search & Select Grid */}
@@ -110,39 +110,41 @@ export const SmartFilterBar: React.FC<SmartFilterBarProps> = ({
         </div>
 
         {/* Second Row: Category Pills & Price Slider */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-1">
-          {/* Category Pill Filters */}
-          <div className="flex flex-wrap items-center gap-1.5 overflow-x-auto w-full pb-1 sm:pb-0 scrollbar-none" id="categoryGroup">
-            <button
-              onClick={() => onFilterChange({ categoryId: 'all' })}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                filters.categoryId === 'all'
-                  ? 'bg-slate-900 text-white shadow-2xs'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
-              }`}
-            >
-              All Categories
-            </button>
-            {categories.map((cat) => {
-              const isActive = filters.categoryId === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => onFilterChange({ categoryId: cat.id })}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
-                    isActive
-                      ? 'bg-primary text-white shadow-2xs'
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
-                  }`}
-                >
-                  {cat.name}
-                </button>
-              );
-            })}
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 pt-1 min-w-0">
+          {/* Category Pill Filters - Single row horizontal scroll on all screen sizes */}
+          <div className="relative flex-1 min-w-0 w-full overflow-hidden">
+            <div className="flex items-center gap-2 overflow-x-auto w-full py-1 scrollbar-none flex-nowrap min-w-0 touch-pan-x" id="categoryGroup">
+              <button
+                onClick={() => onFilterChange({ categoryId: 'all' })}
+                className={`shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer select-none ${
+                  filters.categoryId === 'all'
+                    ? 'bg-slate-900 text-white shadow-2xs'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                }`}
+              >
+                All Categories
+              </button>
+              {categories.map((cat) => {
+                const isActive = filters.categoryId === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => onFilterChange({ categoryId: cat.id })}
+                    className={`shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer select-none ${
+                      isActive
+                        ? 'bg-primary text-white shadow-2xs'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                    }`}
+                  >
+                    {cat.name}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Price Range Slider in PKR */}
-          <div className="flex items-center gap-2.5 bg-slate-50 border border-slate-200 px-3.5 py-1.5 rounded-full whitespace-nowrap self-stretch sm:self-auto justify-between sm:justify-start">
+          <div className="flex items-center gap-2.5 bg-slate-50 border border-slate-200 px-3.5 py-1.5 rounded-full whitespace-nowrap shrink-0 self-start sm:self-auto justify-between sm:justify-start">
             <span className="text-xs text-slate-500 font-medium">
               Max: <strong className="text-slate-900 font-mono-numbers">Rs. {filters.maxPrice.toLocaleString()}</strong>
             </span>
@@ -163,9 +165,6 @@ export const SmartFilterBar: React.FC<SmartFilterBarProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-6 mb-4">
         <div className="flex items-center gap-2.5">
           <h3 className="text-lg font-bold text-slate-900 font-display">Live Box Office Listings</h3>
-          <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 border border-indigo-100 text-primary text-xs font-bold font-mono-numbers">
-            {totalResultsCount} verified events
-          </span>
         </div>
 
         <div className="flex items-center gap-2 self-start sm:self-auto">

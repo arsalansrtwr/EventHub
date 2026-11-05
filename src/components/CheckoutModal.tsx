@@ -463,7 +463,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   type="button"
                   disabled={isSubmitting}
                   onClick={handlePayAndConfirm}
-                  className="w-full bg-primary hover:bg-indigo-700 active:scale-[0.99] text-white py-3.5 px-6 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer disabled:opacity-50"
+                  className="w-full bg-primary hover:opacity-90 active:scale-[0.99] text-white py-3.5 px-6 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>

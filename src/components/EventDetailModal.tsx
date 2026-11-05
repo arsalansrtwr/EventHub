@@ -396,7 +396,7 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
                 <button
                   onClick={handleAddToCartAndProceed}
                   disabled={totalTickets === 0}
-                  className="w-full h-12 rounded-xl bg-primary hover:bg-secondary text-on-primary font-semibold text-xs flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full h-12 rounded-xl bg-primary hover:opacity-90 text-on-primary font-semibold text-xs flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
                   <span>

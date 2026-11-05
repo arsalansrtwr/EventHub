@@ -230,7 +230,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/60 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50/60 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-900">
       {/* Toast Notification Curtain */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 animate-in fade-in slide-in-from-bottom-2 duration-300 max-w-sm bg-slate-900 text-white p-4 rounded-xl shadow-2xl border border-slate-700 flex items-start gap-3">
@@ -265,7 +265,7 @@ export default function App() {
       />
 
       {/* Main View Switcher with top padding to prevent fixed TopBar from hiding content */}
-      <main className="flex-1 pt-16 sm:pt-20">
+      <main className="flex-1 w-full max-w-full pt-16 sm:pt-20">
         {currentView === 'admin' ? (
           <AdminPanel
             onBackToApp={() => setCurrentView('catalogue')}
@@ -315,15 +315,12 @@ export default function App() {
             />
 
             {/* Events Grid */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+            <div className="w-full px-4 sm:px-8 lg:px-12 py-10">
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h2 className="text-xl font-bold tracking-tight text-slate-900">
                     Live Event Listings
                   </h2>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Click any event card to view full itinerary, venue details, and interactive seat maps.
-                  </p>
                 </div>
 
                 {filters.categoryId !== 'all' && (

@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { User } from '../types';
-import { Mail, ShoppingBag, Shield, LogOut, ChevronDown, Menu, X, Crown } from 'lucide-react';
+import { Mail, ShoppingBag, Shield, LogOut, ChevronDown, Menu, X, Crown, Palette, Check } from 'lucide-react';
+
+const BUTTON_THEMES = [
+  { id: 'emerald', name: 'Emerald Green', bg: '#059669', hover: '#047857' },
+  { id: 'obsidian', name: 'Obsidian Black', bg: '#0f172a', hover: '#020617' },
+  { id: 'indigo', name: 'Royal Indigo', bg: '#4f46e5', hover: '#4338ca' },
+  { id: 'crimson', name: 'Crimson Red', bg: '#e11d48', hover: '#be123c' },
+  { id: 'sapphire', name: 'Ocean Blue', bg: '#2563eb', hover: '#1d4ed8' },
+];
 
 interface TopBarProps {
   currentUser: User | null;
@@ -37,16 +45,32 @@ export const TopBar: React.FC<TopBarProps> = ({
 }) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isThemePickerOpen, setIsThemePickerOpen] = useState(false);
+  const [activeThemeId, setActiveThemeId] = useState<string>(() => {
+    return localStorage.getItem('eventhub_button_theme') || 'emerald';
+  });
+
+  const applyTheme = (themeId: string) => {
+    const theme = BUTTON_THEMES.find((t) => t.id === themeId) || BUTTON_THEMES[0];
+    setActiveThemeId(theme.id);
+    localStorage.setItem('eventhub_button_theme', theme.id);
+    document.documentElement.style.setProperty('--color-primary', theme.bg);
+    document.documentElement.style.setProperty('--color-primary-hover', theme.hover);
+  };
+
+  useEffect(() => {
+    applyTheme(activeThemeId);
+  }, []);
 
   return (
     <header className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl shadow-xs border-b border-slate-200">
-      <div className="h-16 sm:h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+      <div className="h-16 sm:h-20 w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Zone */}
-        <div className="flex items-center gap-3 sm:gap-6">
+        <div className="flex items-center gap-2 sm:gap-6">
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="xl:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+            className="xl:hidden p-1.5 sm:p-2 text-slate-700 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -54,16 +78,16 @@ export const TopBar: React.FC<TopBarProps> = ({
 
           <button
             onClick={() => onNavigate('catalogue')}
-            className="flex items-center gap-2.5 hover:opacity-90 transition-opacity cursor-pointer text-left"
+            className="flex items-center gap-2 sm:gap-2.5 hover:opacity-90 transition-opacity cursor-pointer text-left"
           >
-            <div className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white text-xs font-black shadow-xs">
+            <div className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white text-xs font-black shadow-xs shrink-0">
               EH
             </div>
             <div className="flex flex-col">
               <span className="text-base sm:text-lg text-slate-900 tracking-tight font-extrabold font-display leading-none">
                 EventHub
               </span>
-              <span className="text-[9px] uppercase tracking-wider text-slate-400 font-semibold mt-0.5">
+              <span className="hidden sm:block text-[9px] uppercase tracking-wider text-slate-400 font-semibold mt-0.5">
                 Pakistan Box Office
               </span>
             </div>
@@ -142,6 +166,52 @@ export const TopBar: React.FC<TopBarProps> = ({
 
         {/* Right Actions */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Button Theme Color Picker */}
+          <div className="relative">
+            <button
+              onClick={() => setIsThemePickerOpen(!isThemePickerOpen)}
+              className="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors cursor-pointer"
+              title="Change Button Color Theme"
+              aria-label="Change Button Color Theme"
+            >
+              <Palette className="w-4 h-4" />
+            </button>
+
+            {isThemePickerOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-200 p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                <div className="text-[10px] uppercase font-bold text-slate-400 px-2.5 py-1 tracking-wider">
+                  Button Color
+                </div>
+                <div className="space-y-0.5">
+                  {BUTTON_THEMES.map((theme) => {
+                    const isSelected = activeThemeId === theme.id;
+                    return (
+                      <button
+                        key={theme.id}
+                        onClick={() => {
+                          applyTheme(theme.id);
+                          setIsThemePickerOpen(false);
+                        }}
+                        className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                          isSelected ? 'bg-slate-100 text-slate-900' : 'text-slate-600 hover:bg-slate-50'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span
+                            className="w-3.5 h-3.5 rounded-full shrink-0 shadow-2xs border border-black/10"
+                            style={{ backgroundColor: theme.bg }}
+                          />
+                          <span>{theme.name}</span>
+                        </div>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-slate-900" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Email Outbox Trigger */}
           <button
             onClick={onOpenEmails}
@@ -295,18 +365,18 @@ export const TopBar: React.FC<TopBarProps> = ({
               )}
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <button
                 onClick={onOpenAuth}
-                className="px-3 py-1.5 text-slate-700 hover:text-slate-900 text-xs font-semibold hover:bg-slate-100 rounded-xl transition-all cursor-pointer"
+                className="px-2 sm:px-3 py-1.5 text-slate-700 hover:text-slate-900 text-xs font-semibold hover:bg-slate-100 rounded-xl transition-all cursor-pointer whitespace-nowrap"
               >
                 Sign In
               </button>
               <button
                 onClick={onOpenRegister || onOpenAuth}
-                className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-all cursor-pointer flex items-center gap-1.5"
+                className="px-2.5 sm:px-4 py-1.5 sm:py-2 bg-primary hover:opacity-90 text-white rounded-xl text-xs font-semibold shadow-xs transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
               >
-                <Crown className="w-3.5 h-3.5 text-amber-300" />
+                <Crown className="w-3.5 h-3.5 text-amber-300 shrink-0" />
                 <span>Join VIP</span>
               </button>
             </div>

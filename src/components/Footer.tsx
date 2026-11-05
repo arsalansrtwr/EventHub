@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onResetDemoData, onOpenAdmin, on
 
   return (
     <footer className="w-full bg-white shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-16 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      <div className="w-full px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Col 1 & 2: Branding & Live Engine Status */}
           <div className="lg:col-span-2 flex flex-col gap-3">
@@ -35,19 +35,21 @@ export const Footer: React.FC<FooterProps> = ({ onResetDemoData, onOpenAdmin, on
             <p className="text-xs text-slate-500 max-w-sm leading-relaxed">
               Pakistan&apos;s premier live event ticketing portal. Official partner for Coke Studio concerts, PSL cricket fixtures, Sufi Qawwali, literature festivals, and enterprise tech summits across Karachi, Lahore, and Islamabad.
             </p>
-            <div className="flex items-center gap-2 mt-1">
-              <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-xs text-slate-600 font-medium">
-                Official Ticketing Partner • SECP Reg. #1184-PK
-              </span>
-            </div>
-            <div className="text-[11px] text-slate-400 mt-1">
-              UAN Helpline: <span className="font-semibold text-slate-700 font-mono-numbers">+92 21 111-383-684</span> (Mon–Sat, 9 AM – 9 PM PKT)
+            <div className="hidden sm:block space-y-1 mt-1">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span className="text-xs text-slate-600 font-medium">
+                  Official Ticketing Partner • SECP Reg. #1184-PK
+                </span>
+              </div>
+              <div className="text-[11px] text-slate-400">
+                UAN Helpline: <span className="font-semibold text-slate-700 font-mono-numbers">+92 21 111-383-684</span> (Mon–Sat, 9 AM – 9 PM PKT)
+              </div>
             </div>
           </div>
 
           {/* Col 3: Browse Categories */}
-          <div className="flex flex-col gap-2.5">
+          <div className="hidden sm:flex flex-col gap-2.5">
             <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">
               Popular Categories
             </h4>
@@ -69,32 +71,34 @@ export const Footer: React.FC<FooterProps> = ({ onResetDemoData, onOpenAdmin, on
           </div>
 
           {/* Col 4: Platform & Operations */}
-          <div className="flex flex-col gap-2.5">
+          <div className="hidden sm:flex flex-col gap-2.5">
             <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">
               Box Office Portals
             </h4>
-            <button
-              onClick={onOpenAdmin}
-              className="text-left text-xs text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
-            >
-              <span className="material-symbols-outlined text-[16px] text-indigo-600">dashboard</span>
-              Box Office Admin Console
-            </button>
-            <button
-              onClick={onOpenEmails}
-              className="text-left text-xs text-slate-600 hover:text-indigo-600 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
-            >
-              <span className="material-symbols-outlined text-[16px] text-indigo-600">mail</span>
-              Dispatched Ticket Outbox
-            </button>
-            <button
-              onClick={onResetDemoData}
-              className="text-left text-xs text-slate-600 hover:text-rose-600 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
-              title="Restore initial Pakistani box office database seed"
-            >
-              <span className="material-symbols-outlined text-[16px] text-rose-500">restart_alt</span>
-              Reset Box Office Catalog
-            </button>
+            <div className="flex flex-row items-center gap-2 overflow-x-auto w-full pb-1 scrollbar-none flex-nowrap">
+              <button
+                onClick={onOpenAdmin}
+                className="text-left text-xs text-slate-700 hover:text-indigo-600 bg-slate-50 hover:bg-slate-100 border border-slate-200/80 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer font-medium shrink-0 whitespace-nowrap active:scale-95"
+              >
+                <span className="material-symbols-outlined text-[16px] text-indigo-600 shrink-0">dashboard</span>
+                <span>Box Office Admin Console</span>
+              </button>
+              <button
+                onClick={onOpenEmails}
+                className="text-left text-xs text-slate-700 hover:text-indigo-600 bg-slate-50 hover:bg-slate-100 border border-slate-200/80 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer font-medium shrink-0 whitespace-nowrap active:scale-95"
+              >
+                <span className="material-symbols-outlined text-[16px] text-indigo-600 shrink-0">mail</span>
+                <span>Dispatched Ticket Outbox</span>
+              </button>
+              <button
+                onClick={onResetDemoData}
+                className="text-left text-xs text-slate-700 hover:text-rose-600 bg-slate-50 hover:bg-rose-50 border border-slate-200/80 hover:border-rose-200 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer font-medium shrink-0 whitespace-nowrap active:scale-95"
+                title="Restore initial Pakistani box office database seed"
+              >
+                <span className="material-symbols-outlined text-[16px] text-rose-500 shrink-0">restart_alt</span>
+                <span>Reset Box Office Catalog</span>
+              </button>
+            </div>
           </div>
 
           {/* Col 5: Stay Informed Newsletter */}

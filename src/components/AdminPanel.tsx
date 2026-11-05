@@ -245,7 +245,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBackToApp, onRefreshDa
   return (
     <div className="min-h-screen bg-[#faf8ff] text-slate-900 flex">
       {/* Fixed/Sticky Left Navigation Sidebar (Matching stitch template) */}
-      <aside className="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-[#f2f3ff] z-50 flex-col justify-between py-6 border-r border-slate-200">
+      <aside className="hidden lg:flex fixed left-0 top-16 sm:top-20 h-[calc(100vh-4rem)] sm:h-[calc(100vh-5rem)] w-64 bg-[#f2f3ff] z-30 flex-col justify-between py-6 border-r border-slate-200">
         <div className="flex flex-col gap-6">
           <div className="px-6 flex items-center gap-2.5">
             <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white text-xs font-bold shadow-xs">
@@ -358,7 +358,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBackToApp, onRefreshDa
       {/* Main Content Area */}
       <div className="flex-1 w-full lg:pl-64 flex flex-col">
         {/* Header Bar */}
-        <header className="sticky top-0 h-16 bg-white/90 backdrop-blur-md shadow-xs border-b border-slate-200 z-40 flex items-center justify-between px-4 sm:px-6">
+        <header className="sticky top-16 sm:top-20 h-16 bg-white/90 backdrop-blur-md shadow-xs border-b border-slate-200 z-20 flex items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-3">
             {/* Mobile Tab Bar */}
             <div className="flex lg:hidden items-center gap-1 overflow-x-auto text-xs font-semibold py-1">

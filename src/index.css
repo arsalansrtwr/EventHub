@@ -17,15 +17,16 @@
     --color-outline: #777587;
     --color-outline-variant: #c7c4d8;
     --color-surface-tint: #4d44e3;
-    --color-primary: #3525cd;
+    --color-primary: #059669;
+    --color-primary-hover: #047857;
     --color-on-primary: #ffffff;
-    --color-primary-container: #4f46e5;
-    --color-on-primary-container: #dad7ff;
-    --color-inverse-primary: #c3c0ff;
-    --color-secondary: #4648d4;
+    --color-primary-container: #059669;
+    --color-on-primary-container: #d1fae5;
+    --color-inverse-primary: #6ee7b7;
+    --color-secondary: #047857;
     --color-on-secondary: #ffffff;
-    --color-secondary-container: #6063ee;
-    --color-on-secondary-container: #fffbff;
+    --color-secondary-container: #10b981;
+    --color-on-secondary-container: #ecfdf5;
     --color-tertiary: #684000;
     --color-on-tertiary: #ffffff;
     --color-tertiary-container: #885500;
@@ -56,12 +57,29 @@
     background-color: #faf8ff;
   }
 
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     margin: 0;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
     min-height: 100vh;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6, .font-heading, .font-headline-lg, .font-headline-md, .font-headline-sm, .font-display-hero, .font-title-md {
@@ -91,7 +109,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* Semantic utility classes mapping DESIGN.md tokens */
+.bg-primary { background-color: var(--color-primary, #059669); }
+.text-primary { color: var(--color-primary, #059669); }
+.border-primary { border-color: var(--color-primary, #059669); }
+.hover-bg-primary:hover { background-color: var(--color-primary-hover, #047857); }
 .bg-surface { background-color: #faf8ff; }
 .bg-surface-card { background-color: #ffffff; }
 .bg-surface-canvas { background-color: #f8fafc; }
@@ -148,3 +169,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

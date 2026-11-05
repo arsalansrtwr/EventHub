@@ -139,7 +139,12 @@ export const SeatMapModal: React.FC<SeatMapModalProps> = ({
         </div>
 
         {/* Map Canvas */}
-        <div className="flex-1 overflow-y-auto p-6 bg-slate-50/70">
+        <div className="flex-1 overflow-y-auto overflow-x-auto p-4 sm:p-6 bg-slate-50/70">
+          <div className="sm:hidden text-center text-[11px] text-indigo-600 font-medium mb-3 flex items-center justify-center gap-1 bg-indigo-50/80 py-1 px-3 rounded-lg border border-indigo-100">
+            <span className="material-symbols-outlined text-[14px]">swipe</span>
+            <span>Swipe horizontally to select seats</span>
+          </div>
+
           {/* Stage Graphic */}
           <div className="max-w-md mx-auto mb-8 text-center">
             <div className="py-2 px-8 bg-slate-900 text-white rounded-t-xl text-xs font-bold tracking-widest uppercase shadow-sm">
@@ -149,7 +154,7 @@ export const SeatMapModal: React.FC<SeatMapModalProps> = ({
           </div>
 
           {/* Seat Grid by Tier */}
-          <div className="space-y-6 max-w-2xl mx-auto">
+          <div className="space-y-6 min-w-[480px] sm:min-w-0 max-w-2xl mx-auto pb-4">
             {/* VIP Tier */}
             <div className="p-3 bg-amber-50/40 border border-amber-200/60 rounded-lg">
               <div className="text-[11px] font-semibold tracking-wider text-amber-800 uppercase mb-2 flex items-center gap-1">
@@ -302,7 +307,7 @@ export const SeatMapModal: React.FC<SeatMapModalProps> = ({
             <button
               onClick={handleConfirm}
               disabled={selectedSeats.length === 0}
-              className="px-5 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg shadow-xs transition-colors flex items-center justify-center gap-1.5 w-full sm:w-auto cursor-pointer"
+              className="px-5 py-2 text-xs font-semibold text-white bg-primary hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg shadow-xs transition-colors flex items-center justify-center gap-1.5 w-full sm:w-auto cursor-pointer"
             >
               Confirm {selectedSeats.length} Seat{selectedSeats.length !== 1 ? 's' : ''} (Rs. {totalPrice.toLocaleString()})
             </button>

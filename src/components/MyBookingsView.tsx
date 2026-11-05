@@ -86,67 +86,67 @@ export const MyBookingsView: React.FC<MyBookingsViewProps> = ({
 
   return (
     <div className="w-full bg-[#faf8ff] min-h-[calc(100vh-5rem)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full flex flex-col gap-6">
+      <div className="w-full px-4 sm:px-8 lg:px-12 py-6 flex flex-col gap-6">
         {/* Breadcrumb back */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <button
             onClick={onBackToCatalogue}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-indigo-800 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer shrink-0"
           >
             <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-            Back to Event Catalogue
+            <span>Back to Event Catalogue</span>
           </button>
-          <span className="text-xs text-slate-400 font-mono-numbers">
+          <span className="text-xs text-slate-400 font-mono-numbers truncate hidden sm:inline-block">
             Client Session: {currentUser?.email || 'Guest attendee'}
           </span>
         </div>
 
-        {/* Top Profile Summary Card (Matching kinetic horizon) */}
-        <div className="relative overflow-hidden rounded-2xl bg-white shadow-xs p-6 border border-slate-200">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
+        {/* Top Profile Summary Card */}
+        <div className="relative overflow-hidden rounded-2xl bg-white shadow-xs p-4 sm:p-6 border border-slate-200">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+            <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
               <img
-                className="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20 shadow-xs"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover ring-2 ring-indigo-500/20 shadow-xs shrink-0"
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80"
                 alt={currentUser?.name || 'User Profile'}
               />
-              <div className="flex flex-col gap-0.5">
-                <div className="flex items-center gap-2">
-                  <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight font-display">
-                    {currentUser?.name || 'Hamza Tariq'}
+              <div className="flex flex-col gap-0.5 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+                  <h1 className="text-lg sm:text-2xl font-bold text-slate-900 tracking-tight font-display whitespace-nowrap">
+                    {currentUser?.name || 'Dur-e-Adan'}
                   </h1>
-                  <span className="bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                  <span className="bg-slate-100 text-slate-700 text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shrink-0 whitespace-nowrap">
                     {currentUser?.role === 'admin' ? 'Box Office Admin' : 'VIP Member'}
                   </span>
                 </div>
-                <p className="text-xs text-slate-500">
-                  {currentUser?.email || 'hamza.tariq@gmail.com'} • Karachi & Lahore Events
+                <p className="text-xs text-slate-500 truncate">
+                  {currentUser?.email || 'dureadan@gmail.com'} • Karachi & Lahore Events
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-8 border-t md:border-t-0 md:border-l border-slate-200 pt-4 md:pt-0 md:pl-8">
+            <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 border-t md:border-t-0 md:border-l border-slate-100 md:border-slate-200 pt-3 md:pt-0 md:pl-8">
               <div className="flex flex-col">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                   Total Orders
                 </span>
-                <span className="text-2xl font-bold font-mono-numbers text-slate-900 mt-0.5">
+                <span className="text-xl sm:text-2xl font-bold font-mono-numbers text-slate-900 mt-0.5">
                   {orders.length}
                 </span>
               </div>
               <div className="flex flex-col">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                   Active Passes
                 </span>
-                <span className="text-2xl font-bold font-mono-numbers text-primary mt-0.5">
+                <span className="text-xl sm:text-2xl font-bold font-mono-numbers text-indigo-600 mt-0.5">
                   {confirmedCount}
                 </span>
               </div>
               <div className="flex flex-col">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                   Pending Review
                 </span>
-                <span className="text-2xl font-bold font-mono-numbers text-amber-600 mt-0.5">
+                <span className="text-xl sm:text-2xl font-bold font-mono-numbers text-amber-600 mt-0.5">
                   {pendingCount}
                 </span>
               </div>
@@ -154,39 +154,39 @@ export const MyBookingsView: React.FC<MyBookingsViewProps> = ({
           </div>
 
           {/* Subnav Tabs */}
-          <div className="flex items-center gap-6 overflow-x-auto pt-4 mt-4 border-t border-slate-100 text-xs font-semibold">
+          <div className="flex items-center gap-4 sm:gap-6 overflow-x-auto pt-3 sm:pt-4 mt-4 border-t border-slate-100 text-xs font-semibold scrollbar-none flex-nowrap min-w-0">
             <button
               onClick={() => setActiveTab('tickets')}
-              className={`pb-2 flex items-center gap-1.5 transition-colors cursor-pointer border-b-2 ${
+              className={`pb-2.5 flex items-center gap-1.5 transition-colors cursor-pointer border-b-2 shrink-0 whitespace-nowrap ${
                 activeTab === 'tickets'
-                  ? 'text-primary border-primary'
+                  ? 'text-indigo-600 border-indigo-600'
                   : 'text-slate-500 border-transparent hover:text-slate-900'
               }`}
             >
               <span className="material-symbols-outlined text-[18px]">confirmation_number</span>
-              Bookings & Digital Passes ({orders.length})
+              <span>Bookings & Passes ({orders.length})</span>
             </button>
             <button
               onClick={() => setActiveTab('profile')}
-              className={`pb-2 flex items-center gap-1.5 transition-colors cursor-pointer border-b-2 ${
+              className={`pb-2.5 flex items-center gap-1.5 transition-colors cursor-pointer border-b-2 shrink-0 whitespace-nowrap ${
                 activeTab === 'profile'
-                  ? 'text-primary border-primary'
+                  ? 'text-indigo-600 border-indigo-600'
                   : 'text-slate-500 border-transparent hover:text-slate-900'
               }`}
             >
               <span className="material-symbols-outlined text-[18px]">person</span>
-              Attendee Profile
+              <span>Attendee Profile</span>
             </button>
             <button
               onClick={() => setActiveTab('preferences')}
-              className={`pb-2 flex items-center gap-1.5 transition-colors cursor-pointer border-b-2 ${
+              className={`pb-2.5 flex items-center gap-1.5 transition-colors cursor-pointer border-b-2 shrink-0 whitespace-nowrap ${
                 activeTab === 'preferences'
-                  ? 'text-primary border-primary'
+                  ? 'text-indigo-600 border-indigo-600'
                   : 'text-slate-500 border-transparent hover:text-slate-900'
               }`}
             >
               <span className="material-symbols-outlined text-[18px]">notifications</span>
-              Notification Preferences
+              <span>Notification Preferences</span>
             </button>
           </div>
         </div>
@@ -276,8 +276,6 @@ export const MyBookingsView: React.FC<MyBookingsViewProps> = ({
                 ) : (
                   filteredOrders.map((order) => {
                     const firstItem = order.items[0];
-                    const allSeats = order.items.flatMap((i) => i.seat_numbers);
-                    const totalQty = order.items.reduce((acc, i) => acc + i.quantity, 0);
 
                     return (
                       <div
@@ -332,94 +330,29 @@ export const MyBookingsView: React.FC<MyBookingsViewProps> = ({
                                   </span>
                                 </div>
                               </div>
-
-                              <div className="flex items-center gap-4 text-xs text-slate-500 pt-1">
-                                <span className="font-semibold text-slate-900 font-mono-numbers">
-                                  {totalQty}x Passes
-                                </span>
-                                <span>•</span>
-                                <span className="font-mono-numbers text-slate-700 font-bold">
-                                  Rs. {order.total_amount.toLocaleString()} Paid ({order.payment_method.toUpperCase()})
-                                </span>
-                                <span>•</span>
-                                <span className="text-indigo-700 font-mono-numbers font-semibold">
-                                  Seats: {allSeats.length > 0 ? allSeats.join(', ') : 'General Admission'}
-                                </span>
-                              </div>
                             </div>
                           </div>
                         </div>
 
-                        {/* Order QR & Action Footer */}
-                        <div className="p-4 bg-slate-50/70 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
-                          <div className="flex items-center gap-3.5 w-full md:w-auto">
-                            {/* SVG Mini QR */}
-                            <div className="p-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs shrink-0">
-                              <svg className="w-12 h-12 text-slate-900" fill="currentColor" viewBox="0 0 100 100">
-                                <rect height="28" width="28" x="6" y="6"></rect>
-                                <rect fill="#ffffff" height="16" width="16" x="12" y="12"></rect>
-                                <rect height="8" width="8" x="16" y="16"></rect>
-                                <rect height="28" width="28" x="66" y="6"></rect>
-                                <rect fill="#ffffff" height="16" width="16" x="72" y="12"></rect>
-                                <rect height="8" width="8" x="76" y="16"></rect>
-                                <rect height="28" width="28" x="6" y="66"></rect>
-                                <rect fill="#ffffff" height="16" width="16" x="12" y="72"></rect>
-                                <rect height="8" width="8" x="16" y="76"></rect>
-                                <rect height="6" width="6" x="40" y="8"></rect>
-                                <rect height="6" width="6" x="50" y="16"></rect>
-                                <rect height="6" width="6" x="42" y="24"></rect>
-                                <rect height="6" width="6" x="52" y="32"></rect>
-                                <rect height="6" width="6" x="12" y="44"></rect>
-                                <rect height="6" width="6" x="44" y="44"></rect>
-                                <rect height="6" width="6" x="64" y="44"></rect>
-                                <rect height="6" width="6" x="44" y="68"></rect>
-                                <rect height="6" width="6" x="68" y="76"></rect>
-                              </svg>
-                            </div>
-
-                            <div className="flex flex-col text-xs">
-                              <span className="font-bold text-slate-900">
-                                Scannable Digital Entry Pass
-                              </span>
-                              <span className="text-slate-500 font-mono-numbers">
-                                Pass Code: EH-{order.id.slice(0, 8).toUpperCase()}
-                              </span>
-                              {order.status === 'confirmed' ? (
-                                <span className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-0.5">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                                  Ready to scan at turnstile
-                                </span>
-                              ) : order.status === 'cancelled' ? (
-                                <span className="text-[11px] text-rose-500 font-semibold mt-0.5">
-                                  Pass voided
-                                </span>
-                              ) : (
-                                <span className="text-[11px] text-amber-600 font-semibold mt-0.5">
-                                  Pending verification
-                                </span>
-                              )}
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-2 w-full md:w-auto shrink-0 justify-end">
-                            {order.status !== 'cancelled' && (
-                              <button
-                                onClick={() => handleCancelBooking(order.id)}
-                                disabled={cancellingOrderId === order.id}
-                                className="px-3 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 border border-rose-200 rounded-lg transition-colors cursor-pointer"
-                              >
-                                Cancel Order
-                              </button>
-                            )}
-
+                        {/* Order Action Footer */}
+                        <div className="p-4 bg-slate-50/70 border-t border-slate-200 flex items-center justify-end gap-2">
+                          {order.status !== 'cancelled' && (
                             <button
-                              onClick={() => onViewTicket(order)}
-                              className="bg-primary hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-lg flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer"
+                              onClick={() => handleCancelBooking(order.id)}
+                              disabled={cancellingOrderId === order.id}
+                              className="px-3 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 border border-rose-200 rounded-lg transition-colors cursor-pointer"
                             >
-                              <span className="material-symbols-outlined text-[16px]">qr_code</span>
-                              View Digital Pass
+                              Cancel Order
                             </button>
-                          </div>
+                          )}
+
+                          <button
+                            onClick={() => onViewTicket(order)}
+                            className="bg-primary hover:opacity-90 text-white text-xs font-semibold px-4 py-2 rounded-lg flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer"
+                          >
+                            <span className="material-symbols-outlined text-[16px]">qr_code</span>
+                            <span>View Digital Pass</span>
+                          </button>
                         </div>
                       </div>
                     );
