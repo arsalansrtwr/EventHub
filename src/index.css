@@ -17,16 +17,16 @@
     --color-outline: #777587;
     --color-outline-variant: #c7c4d8;
     --color-surface-tint: #4d44e3;
-    --color-primary: #059669;
-    --color-primary-hover: #047857;
+    --color-primary: #0f172a;
+    --color-primary-hover: #020617;
     --color-on-primary: #ffffff;
-    --color-primary-container: #059669;
-    --color-on-primary-container: #d1fae5;
-    --color-inverse-primary: #6ee7b7;
-    --color-secondary: #047857;
+    --color-primary-container: #0f172a;
+    --color-on-primary-container: #f8fafc;
+    --color-inverse-primary: #94a3b8;
+    --color-secondary: #1e293b;
     --color-on-secondary: #ffffff;
-    --color-secondary-container: #10b981;
-    --color-on-secondary-container: #ecfdf5;
+    --color-secondary-container: #334155;
+    --color-on-secondary-container: #f1f5f9;
     --color-tertiary: #684000;
     --color-on-tertiary: #ffffff;
     --color-tertiary-container: #885500;
@@ -109,10 +109,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.bg-primary { background-color: var(--color-primary, #059669); }
-.text-primary { color: var(--color-primary, #059669); }
-.border-primary { border-color: var(--color-primary, #059669); }
-.hover-bg-primary:hover { background-color: var(--color-primary-hover, #047857); }
+.bg-primary { background-color: #0f172a; }
+.text-primary { color: #0f172a; }
+.border-primary { border-color: #0f172a; }
+.hover-bg-primary:hover { background-color: #020617; }
 .bg-surface { background-color: #faf8ff; }
 .bg-surface-card { background-color: #ffffff; }
 .bg-surface-canvas { background-color: #f8fafc; }
